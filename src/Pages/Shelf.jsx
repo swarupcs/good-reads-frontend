@@ -51,13 +51,13 @@ export default function Shelf() {
                   className="mt-3 mb-3  w-full"
                 >
                   <button
-                    className={`btn-${
-                      activeShelf == shelf._id ? "primary" : "warning"
-                    } px-2 py-1 text-2xl rounded-md px-2 w-full`}
+                    className={`px-2 py-1 text-2xl rounded-md w-full ${
+                      activeShelf === shelf._id
+                        ? "bg-green-500 text-white"
+                        : "bg-orange-500 text-white"
+                    }`}
                   >
                     {shelf.name}
-                    {console.log("activeShlef", activeShelf)}
-                    {console.log("shelf._id", shelf._id)}
                   </button>
                 </div>
               );
@@ -77,7 +77,7 @@ export default function Shelf() {
                 await dispatch(getAllBookShelves());
                 setShelfInput("");
               }}
-              className="block btn-accent px-4 py-2 rounded-md"
+              className="block bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md"
             >
               Create New Shelf
             </button>
@@ -142,7 +142,6 @@ export default function Shelf() {
           )}
         </div>
       </div>
-      `
     </Layout>
   );
 }
