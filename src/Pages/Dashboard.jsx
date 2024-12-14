@@ -10,8 +10,7 @@ export default function Dashboard() {
 
   async function loadBooks() {
     if (bookState.bookList.length == 0) {
-      const response = await dispatch(getAllBooks());
-      console.log(response);
+      await dispatch(getAllBooks());
     }
   }
 
